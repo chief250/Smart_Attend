@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Attendly</string>
+    <string name="app_tagline">Smart Campus Attendance</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_courses">Courses</string>
+    <string name="nav_history">History</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Titles -->
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="attendance_confirmation">Attendance Confirmation</string>
+    <string name="attendance_details">Attendance Details</string>
+    <string name="attendance_history">Attendance History</string>
+    <string name="my_courses">My Courses</string>
+    <string name="all_courses">All Courses</string>
+    <string name="my_profile">My Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="help">Help &amp; FAQ</string>
+    <string name="face_verification">Face Verification</string>
+
+    <!-- Actions -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirmation">Are you sure you want to log out?</string>
+    <string name="logout_confirm">Are you sure you want to log out?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="save">Save</string>
+    <string name="change">Change</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="capture_photo">Capture Photo</string>
+    <string name="report_problem">Report a Problem</string>
+    <string name="back_to_dashboard">Back to Dashboard</string>
+    <string name="retry">Retry</string>
+    <string name="skip_verification">Skip Verification</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_password">Change Password</string>
+
+    <!-- Status & Messages -->
+    <string name="face_verified">Face Verified</string>
+    <string name="face_not_verified">Face Not Verified</string>
+    <string name="review_submitted">Dispute submitted successfully</string>
+    <string name="profile_updated">Profile updated successfully</string>
+    <string name="password_changed">Password changed successfully</string>
+    <string name="analyzing_face">Analyzing face...</string>
+    <string name="face_not_detected">No face detected</string>
+    <string name="face_not_detected_message">Please position your face within the frame and ensure good lighting.</string>
+    <string name="face_too_small">Please move closer to the camera</string>
+    <string name="eyes_not_open">Please keep your eyes open and look at the camera</string>
+    <string name="face_verification_failed">Face verification failed</string>
+    <string name="verification_failed_title">Verification Failed</string>
+    <string name="position_face">Position your face in the oval guide</string>
+    <string name="validating_qr">Validating QR code...</string>
+    <string name="error_qr_invalid_title">Invalid QR Code</string>
+    <string name="qr_instructions">Align QR code inside the frame to scan</string>
+
+    <!-- Errors -->
+    <string name="error_check_in_failed">Check-in failed. Please try again.</string>
+    <string name="error_network">Network error</string>
+    <string name="error_reason_required">Please enter a reason</string>
+    <string name="error_submit_review">Failed to submit dispute</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_loading_data">Failed to load data</string>
+    <string name="error_camera">Camera error occurred</string>
+    <string name="error_camera_not_ready">Camera is not ready</string>
+    <string name="error_capture_failed">Failed to capture image</string>
+    <string name="error_camera_permission_denied">Camera permission is required to perform face verification</string>
+    <string name="camera_permission_denied">Camera permission is required to perform face verification</string>
+    <string name="error_email_required">Email address is required</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_login_failed">Login failed. Check your credentials.</string>
+    <string name="error_name_required">Name is required</string>
+    <string name="error_update_profile">Failed to update profile</string>
+    <string name="error_passwords_mismatch">Passwords do not match</string>
+    <string name="error_change_password">Failed to change password</string>
+    <string name="error_qr_invalid">Invalid or expired QR code</string>
+    <string name="error_qr_expired">This attendance QR code has expired</string>
+
+    <!-- FAQs -->
+    <string name="faq_q1">How do I mark my attendance?</string>
+    <string name="faq_a1">Point your camera at the lecturer\'s projected QR code. Once scanned, position your face in the oval guide to complete verification.</string>
+
+    <string name="faq_q2">What if face verification fails?</string>
+    <string name="faq_a2">Ensure you are in a well-lit area, look directly at the camera, and remove sunglasses or obstructions.</string>
+
+    <string name="faq_q3">Can I scan on behalf of a classmate?</string>
+    <string name="faq_a3">No. The system uses strict biometric facial recognition linked to each student\'s unique registered template.</string>
+
+    <string name="faq_q4">How do I report an attendance dispute?</string>
+    <string name="faq_a4">Navigate to the session in History, click Details, and tap \'Report a Problem\' to request lecturer/admin review.</string>
+
+    <string name="faq_q5">What should I do if the app crashes?</string>
+    <string name="faq_a5">Try restarting the app, checking your internet connection, or re-logging in.</string>
+</resources>
