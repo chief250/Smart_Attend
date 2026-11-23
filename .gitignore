@@ -31,3 +31,9 @@ google-services.json
 
 # Android profiling
 *.hprof
+
+# Backend generated files
+backend/target/
+backend/tools/
+backend/*.iml
+backend/.idea/

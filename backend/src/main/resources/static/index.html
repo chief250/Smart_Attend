@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attend — Campus Attendance Portal</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #0D47A1 0%, #1976D2 50%, #42A5F5 100%);
+    }
+    .login-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .app-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-wrapper">
+  <div class="login-box">
+    <div class="app-icon">A</div>
+    <h2 style="font-size: 1.6rem; font-weight: 800; color: #1E293B; margin-bottom: 0.25rem;">Attendly</h2>
+    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Smart Campus Attendance System</p>
+
+    <div id="alertBox" style="display: none; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem;"></div>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group" style="text-align: left;">
+        <label class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-control" placeholder="user@university.edu" required>
+      </div>
+
+      <div class="form-group" style="text-align: left;">
+        <label class="form-label">Password</label>
+        <input type="password" id="password" class="form-control" placeholder="••••••••••••" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1.05rem; margin-top: 0.5rem;">
+        Sign In to Portal
+      </button>
+    </form>
+
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); text-align: left;">
+      <strong>Quick Demo Accounts:</strong>
+      <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+        <li><strong>Admin:</strong> admin@university.edu / admin123</li>
+        <li><strong>Lecturer:</strong> sarah.lecturer@university.edu / password123</li>
+        <li><strong>Student:</strong> ahmad.student@university.edu / password123</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const alertBox = document.getElementById('alertBox');
+
+    alertBox.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        localStorage.setItem('auth_token', data.data.token);
+        localStorage.setItem('user_role', data.data.role);
+        localStorage.setItem('user_name', data.data.fullName);
+        localStorage.setItem('user_id', data.data.userId);
+
+        if (data.data.role === 'ADMIN') {
+          window.location.href = '/admin.html';
+        } else if (data.data.role === 'LECTURER') {
+          window.location.href = '/lecturer.html';
+        } else {
+          alert('Welcome ' + data.data.fullName + '! As a student, please use the Android mobile application for QR scan and face verification.');
+        }
+      } else {
+        alertBox.className = 'badge-absent';
+        alertBox.innerText = data.message || 'Invalid credentials';
+        alertBox.style.display = 'block';
+      }
+    } catch (err) {
+      alertBox.className = 'badge-absent';
+      alertBox.innerText = 'Unable to reach backend server.';
+      alertBox.style.display = 'block';
+    }
+  }
+
+  // Auto redirect if already logged in
+  const role = localStorage.getItem('user_role');
+  if (role === 'ADMIN') window.location.href = '/admin.html';
+  else if (role === 'LECTURER') window.location.href = '/lecturer.html';
+</script>
+
+</body>
+</html>
