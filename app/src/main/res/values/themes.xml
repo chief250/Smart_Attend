@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SmartAttend" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/color_primary_light</item>
+        <item name="colorOnPrimaryContainer">@color/color_primary_dark</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/color_text_primary</item>
+        <item name="colorTertiary">@color/color_accent</item>
+
+        <!-- Background & Surface -->
+        <item name="android:colorBackground">@color/color_background</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/color_text_primary</item>
+        <item name="colorSurfaceVariant">@color/color_primary_light</item>
+        <item name="colorOutline">@color/color_divider</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/color_primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/color_background</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Custom Input Style -->
+        <item name="textInputStyle">@style/Widget.SmartAttend.TextInputLayout</item>
+    </style>
+
+    <style name="Widget.SmartAttend.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/color_primary</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextColor">@color/color_primary</item>
+        <item name="android:textColorHint">@color/color_text_secondary</item>
+    </style>
+
+    <style name="Widget.SmartAttend.BottomNavigation.ActiveIndicator" parent="Widget.Material3.NavigationBarView.ActiveIndicator">
+        <item name="android:width">56dp</item>
+        <item name="android:height">32dp</item>
+        <item name="android:drawable">@drawable/bg_nav_active</item>
+    </style>
+
+    <style name="Theme.SmartAttend.Splash" parent="Theme.SmartAttend">
+        <item name="android:windowBackground">@color/color_primary</item>
+    </style>
+</resources>
