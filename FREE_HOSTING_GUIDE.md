@@ -42,11 +42,14 @@ Render offers a free Web Service tier that connects directly to your GitHub repo
 ### Step 3: Configure Environment Variables
 In the Render dashboard, go to **Environment** and add:
 * `SPRING_PROFILES_ACTIVE` = `dev` *(Uses embedded H2 database - zero configuration required)*
+* `JWT_SECRET` = a Base64-encoded random secret of at least 32 bytes *(required for login token signing; generate one with `openssl rand -base64 32`)*
 * OR for MySQL:
   * `SPRING_PROFILES_ACTIVE` = `mysql`
   * `SPRING_DATASOURCE_URL` = `jdbc:mysql://YOUR_MYSQL_HOST:3306/smart_attend?useSSL=true`
   * `SPRING_DATASOURCE_USERNAME` = `YOUR_DB_USER`
   * `SPRING_DATASOURCE_PASSWORD` = `YOUR_DB_PASSWORD`
+
+The backend reads Render's `PORT` value (default `10000`) for its HTTP listener. With the `dev` profile, H2 is in-memory, so its data resets when the service restarts; use a managed database for persistent data.
 
 ### Step 4: Deploy & Get Backend URL
 1. Click **Create Web Service**.
